@@ -2,7 +2,6 @@
 .Rhistory
 .RData
 .Ruserdata
-./dados/
 rascunho.r
 dados/
 *.rda
