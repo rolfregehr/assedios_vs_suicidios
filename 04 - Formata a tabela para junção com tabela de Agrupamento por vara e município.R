@@ -22,8 +22,6 @@ tabela_final |>
 tabela_final$nome = str_replace(tabela_final$nome, 'Indenizaçao por Dano Moral', 'Indenização por Dano Moral')
 
 
-load("dados_trts_agrupados.rda")
-
 
 
 
@@ -41,10 +39,11 @@ tabela$`Indenização por Dano Moral` <- if_else(tabela$total > 1 & tabela$`Inde
 
 
 
-tabela |> 
+tabela <- tabela |> 
   select(-total) |> 
   pivot_longer(cols = 2:16, names_to = 'assunto', values_to = 'n') |> 
   filter(n!=0) |> 
   mutate(trt = paste0('trt',str_sub(processo, 15, 16)),
          vara =  str_sub(processo, 17, 20)) |>
   arrange(trt)
+save(tabela, file = 'tabela.rda')
