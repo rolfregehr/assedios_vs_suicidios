@@ -383,3 +383,8 @@ tabela |>
 
 
 tabela$grupo[which(tabela$trt == 'trt23' & tabela$vara == '0136')] <- 'G_583'
+
+
+tabela_assedios <- tabela
+
+save(tabela_assedios, file = 'tabela_assedios.rda')
